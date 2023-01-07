@@ -49,7 +49,7 @@ recipeRoute.get("/", async (req, res) => {
     const recipesTotal = await getAllRecipes();
     if(name){
       let recipeName = recipesTotal.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))
-      recipeName.length ? res.json(recipeName) : res.status(404).json({message: "No hay una receta con ese nombre"})
+      recipeName.length ? res.json(recipeName) : res.status(404).json("No hay reseta con ese nombre")
     } else {
       res.json(recipesTotal);
     }
