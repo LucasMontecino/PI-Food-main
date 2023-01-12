@@ -25,7 +25,7 @@ postRecipe.post("/", async (req, res) => {
         let dietDb = await Diet.findAll({
             where: { name: diets }
         })
-    
+        
         newRecipe.addDiet(dietDb);
 
         res.send("Reseta creada con éxito!");
