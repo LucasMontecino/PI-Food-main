@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRecipes, getDiets } from "../actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
-import "./Home.module.css";
+import style from "./Home.module.css";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -23,8 +23,7 @@ export default function Home() {
 
   return (
     <>
-
-    {/* Main Header */}
+      {/* Main Header */}
       <header>
         <Link to="/recipes">
           <button>Crear Receta Nueva</button>
@@ -61,24 +60,29 @@ export default function Home() {
         </div>
       </header>
 
-
-
       {/* Contenedor principal del Home  */}
 
-      {allRecipes?.map((el) => {
-        let diets = el.diets.length
-          ? el.diets[0].name
-            ? el.diets.map((el) => el.name)
-            : el.diets
-          : null;
-        return (
-          <div key={el.id}>
-            <Link to={`/home/${el.id}`}>
-              <Card name={el.name} diets={diets} image={el.image} key={el.id} />
-            </Link>
-          </div>
-        );
-      })}
+      <div className={style.grid_container}>
+        {allRecipes?.map((el) => {
+          let diets = el.diets.length
+            ? el.diets[0].name
+              ? el.diets.map((el) => el.name)
+              : el.diets
+            : null;
+          return (
+            <div key={el.id}>
+              <Link to={`/home/${el.id}`}>
+                <Card
+                  name={el.name}
+                  diets={diets}
+                  image={el.image}
+                  key={el.id}
+                />
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }
