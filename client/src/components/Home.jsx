@@ -4,6 +4,7 @@ import { getRecipes, getDiets } from "../actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import style from "./Home.module.css";
+import { CustomButton } from "./CustomButton";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export default function Home() {
       {/* Main Header */}
       <header>
         <Link to="/recipes">
-          <button>Crear Receta Nueva</button>
+          <CustomButton text={"Crear Nueva Receta"} />
         </Link>
         <h1>Recetas!!!!</h1>
         <button
