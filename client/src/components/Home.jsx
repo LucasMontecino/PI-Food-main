@@ -27,16 +27,13 @@ export default function Home() {
       {/* Main Header */}
       <header>
         <Link to="/recipes">
-          <CustomButton text={"Crear Nueva Receta"} />
+          <CustomButton text="Crear Nueva Receta" />
         </Link>
         <h1>Recetas!!!!</h1>
-        <button
-          onClick={(e) => {
-            handleClick(e);
-          }}
-        >
-          Volver a cargar todas las recetas
-        </button>
+        <CustomButton
+          text="Cargar todas las recetas"
+          alHacerClick={(e) => handleClick(e)}
+        />
 
         <div>
           <select>
