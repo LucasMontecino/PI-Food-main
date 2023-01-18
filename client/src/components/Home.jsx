@@ -26,37 +26,43 @@ export default function Home() {
   return (
     <>
       {/* Main Header */}
-      <header>
-        <Link to="/recipes">
-          <CustomButton text="Crear Nueva Receta" />
-        </Link>
+      <header className={style.main_header}>
+        <div className={style.main_header_right}>
+          <Link to="/recipes">
+            <CustomButton text="Crear Nueva Receta" />
+          </Link>
+          <CustomButton
+            text="Cargar todas las recetas"
+            alHacerClick={(e) => handleClick(e)}
+          />
+        </div>
+
         <h1>Recetas!!!!</h1>
-        <CustomButton
-          text="Cargar todas las recetas"
-          alHacerClick={(e) => handleClick(e)}
-        />
-        <SearchBar />
 
-        <div>
-          <select>
-            <option value="ascendente">Ascendente</option>
-            <option value="descendente">Descendente</option>
-          </select>
+        <div className={style.main_header_filtersearchbar}>
+          <SearchBar />
 
-          <select>
-            <option value="All">Todas las dietas</option>
-            {allDiets?.map((el) => (
-              <option value={el.name} key={el.id}>
-                {el.name}
-              </option>
-            ))}
-          </select>
+          <div>
+            <select>
+              <option value="ascendente">Ascendente</option>
+              <option value="descendente">Descendente</option>
+            </select>
 
-          <select>
-            <option value="All">Todos las recetas</option>
-            <option value="api">Recetas de la API</option>
-            <option value="created">Recetas creadas</option>
-          </select>
+            <select>
+              <option value="All">Todas las dietas</option>
+              {allDiets?.map((el) => (
+                <option value={el.name} key={el.id}>
+                  {el.name}
+                </option>
+              ))}
+            </select>
+
+            <select>
+              <option value="All">Todos las recetas</option>
+              <option value="api">Recetas de la API</option>
+              <option value="created">Recetas creadas</option>
+            </select>
+          </div>
         </div>
       </header>
 
