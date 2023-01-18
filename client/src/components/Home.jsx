@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 import style from "./Home.module.css";
 import { CustomButton } from "./CustomButton";
+import { SearchBar } from "./SearchBar";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ export default function Home() {
           text="Cargar todas las recetas"
           alHacerClick={(e) => handleClick(e)}
         />
+        <SearchBar />
 
         <div>
           <select>
