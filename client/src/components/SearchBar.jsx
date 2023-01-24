@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getRecipesName } from "../actions";
 import { CustomButton } from "./CustomButton";
+import style from "./SearchBar.module.css";
 
 export const SearchBar = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export const SearchBar = () => {
   };
 
   return (
-    <div>
+    <div className={style.searchBar}>
       <input
         type="text"
         placeholder="Busque su receta..."

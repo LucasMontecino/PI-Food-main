@@ -7,7 +7,7 @@ export default function LandingPage() {
   return (
     <div className={style.background}>
       <div className={style.showcase}>
-        <h1>Bienvenidos a la mejor pagina de coso</h1>
+        <h1>Bienvenido a Food Api</h1>
         <Link to="/home">
           <CustomButton text="Ir a la Página Principal" />
         </Link>

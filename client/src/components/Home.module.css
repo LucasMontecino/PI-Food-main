@@ -9,15 +9,29 @@ body {
 
 .main_header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    height: 68px;
+    margin-bottom: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(105, 155, 246, 0.6);
+    transition-duration: 0.5s;
 }
 
-.main_header_right {
+.main_header:hover {
+    background-color: #699BF6;
+}
+
+.main_header_left {
     display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    padding-right: 10px;
-    /* justify-content: end; */
+    margin-left: 10px;
+}
+
+.main_header_filtersearchbar {
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .grid_container {
@@ -25,4 +39,6 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
+    margin-bottom: 350px;
+    margin-top: 20px;
 }

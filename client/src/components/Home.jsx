@@ -6,11 +6,13 @@ import Card from "./Card";
 import style from "./Home.module.css";
 import { CustomButton } from "./CustomButton";
 import { SearchBar } from "./SearchBar";
+import Paginate from "./Paginate";
 
 export default function Home() {
   const dispatch = useDispatch();
   const allRecipes = useSelector((state) => state.recipes);
   const allDiets = useSelector((state) => state.diets);
+  const [currentPage, setCurrentPage] = useState(0);
   // console.log(allRecipes);
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export default function Home() {
     <>
       {/* Main Header */}
       <header className={style.main_header}>
-        <div className={style.main_header_right}>
+        <div className={style.main_header_left}>
           <Link to="/recipes">
             <CustomButton text="Crear Nueva Receta" />
           </Link>
@@ -37,10 +39,12 @@ export default function Home() {
           />
         </div>
 
-        <h1>Recetas!!!!</h1>
+        <h1>FOOD | API</h1>
 
         <div className={style.main_header_filtersearchbar}>
           <SearchBar />
+
+          {/* Filtros */}
 
           <div>
             <select>
@@ -68,6 +72,12 @@ export default function Home() {
 
       {/* Contenedor principal del Home  */}
 
+      <Paginate
+        allRecipes={allRecipes}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+
       <div className={style.grid_container}>
         {allRecipes?.map((el) => {
           let diets = el.diets.length
@@ -79,9 +89,9 @@ export default function Home() {
             <div key={el.id}>
               <Link to={`/home/${el.id}`}>
                 <Card
+                  image={el.image}
                   name={el.name}
                   diets={diets}
-                  image={el.image}
                   key={el.id}
                 />
               </Link>
