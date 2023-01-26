@@ -19,10 +19,6 @@ export const SearchBar = () => {
     dispatch(getRecipesName(name));
   });
 
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  // };
-
   return (
     <div className={style.searchBar}>
       <input

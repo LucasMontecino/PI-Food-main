@@ -1,7 +1,11 @@
 .cardStyle {
     border: 2px solid #2c3e50;
     height: 100%;
+    transition-duration: 0.5s;
+}
 
+.cardStyle:hover {
+    background-color: rgb(230, 234, 239, 0.2);
 }
 
 .main_img {
@@ -12,5 +16,4 @@
 
 .flex_container {
     display: grid;
-
 }
