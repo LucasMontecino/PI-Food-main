@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getRecipesName } from "../actions";
-import { CustomButton } from "./CustomButton";
 import style from "./SearchBar.module.css";
 
 export const SearchBar = () => {
@@ -12,13 +12,16 @@ export const SearchBar = () => {
   const handleChange = (e) => {
     e.preventDefault();
     setName(e.target.value);
+    // setName("");
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
+  useEffect(() => {
     dispatch(getRecipesName(name));
-    setName("");
-  };
+  });
+
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  // };
 
   return (
     <div className={style.searchBar}>
@@ -27,11 +30,6 @@ export const SearchBar = () => {
         placeholder="Busque su receta..."
         onChange={(e) => handleChange(e)}
         value={name}
-      />
-      <CustomButton
-        text="Search"
-        type="submit"
-        alHacerClick={(e) => handleSearch(e)}
       />
     </div>
   );
