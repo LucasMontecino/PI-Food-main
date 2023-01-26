@@ -17,7 +17,7 @@ export const SearchBar = () => {
 
   useEffect(() => {
     dispatch(getRecipesName(name));
-  });
+  }, [dispatch, name]);
 
   return (
     <div className={style.searchBar}>
