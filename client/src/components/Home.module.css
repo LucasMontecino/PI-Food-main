@@ -7,6 +7,30 @@ body {
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+h1 {
+    display: inline-block;
+    position: relative;
+    color: #0B3054;
+}
+
+h1::after,
+h1::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 3px;
+    background-color: currentColor;
+    top: 0.6em;
+}
+
+h1::before {
+    left: -140px;
+}
+
+h1::after {
+    right: -140px;
+}
+
 .main_header {
     display: flex;
     justify-content: space-between;
@@ -37,8 +61,7 @@ body {
 .grid_container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-gap: 30px;
     grid-auto-rows: minmax(100px, auto);
-    margin-bottom: 350px;
-    margin-top: 20px;
+    margin: 20px 30px 350px 30px;
 }

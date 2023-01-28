@@ -39,7 +39,7 @@ export default function Home() {
           />
         </div>
 
-        <h1>FOOD | API</h1>
+        <h1>FOOD ENCYCLOPEDIA</h1>
 
         <div className={style.main_header_filtersearchbar}>
           <SearchBar />
