@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 import style from "./Home.module.css";
 import { CustomButton } from "./CustomButton";
-import { SearchBar } from "./SearchBar";
-import Paginate from "./Paginate";
+// import { SearchBar } from "./SearchBar";
+// import Paginate from "./Paginate";
 
 export default function Home() {
   const dispatch = useDispatch();

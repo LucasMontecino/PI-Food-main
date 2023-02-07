@@ -26,7 +26,7 @@ h3 {
 }
 
 .main_img img {
-
+    height: 230px;
     width: 320px;
     border-radius: 10px;
     border: 3px solid #F4D03F;
@@ -35,6 +35,9 @@ h3 {
 
 .flex_container {
     display: grid;
-    color: #2c3e50;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+    margin-top: 5px;
+    color: antiquewhite;
     font-variant-caps: small-caps;
 }

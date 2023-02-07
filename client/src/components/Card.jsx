@@ -5,7 +5,7 @@ export default function Card({ name, diets, image }) {
   return (
     <div className={style.cardStyle}>
       <div className={style.main_img}>
-        <img src={image} alt="no se encontró la imagen" />
+        <img src={image} alt={name} />
       </div>
       <h3>{name}</h3>
       <div className={style.flex_container}>
