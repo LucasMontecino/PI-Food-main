@@ -65,3 +65,9 @@ h1::after {
     grid-auto-rows: minmax(100px, auto);
     margin: 20px 30px 350px 30px;
 }
+
+.btnDisplay {
+    margin-top: 87px;
+    display: flex;
+    justify-content: center;
+}

@@ -13,7 +13,41 @@ export default function Home() {
   const allRecipes = useSelector((state) => state.recipes);
   const allDiets = useSelector((state) => state.diets);
   const [currentPage, setCurrentPage] = useState(0);
+  const [search, setSearch] = useState("");
   // console.log(allRecipes);
+
+  const filteredRecipes = () => {
+    if (search.length === 0) {
+      return allRecipes.slice(currentPage, currentPage + 6);
+    }
+
+    const filtered = allRecipes.filter((recipe) =>
+      recipe.name.toLowerCase().includes(search.toLowerCase())
+    );
+    return filtered.slice(currentPage, currentPage + 6);
+  };
+
+  const nextPage = () => {
+    if (
+      allRecipes.filter((recipe) =>
+        recipe.name.toLowerCase().includes(search.toLowerCase())
+      ).length >
+      currentPage + 6
+    ) {
+      setCurrentPage(currentPage + 6);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 6);
+    }
+  };
+
+  const onSearch = (event) => {
+    setCurrentPage(0);
+    setSearch(event.target.value);
+  };
 
   useEffect(() => {
     dispatch(getRecipes());
@@ -42,7 +76,12 @@ export default function Home() {
         <h1>FOOD ENCYCLOPEDIA</h1>
 
         <div className={style.main_header_filtersearchbar}>
-          <SearchBar />
+          <input
+            type="search"
+            placeholder="Buscar receta..."
+            value={search}
+            onChange={onSearch}
+          />
 
           {/* Filtros */}
 
@@ -71,15 +110,12 @@ export default function Home() {
       </header>
 
       {/* Contenedor principal del Home  */}
-
-      <Paginate
-        allRecipes={allRecipes}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
-
+      <div className={style.btnDisplay}>
+        <CustomButton text="Prev" alHacerClick={prevPage} />
+        <CustomButton text="Next" alHacerClick={nextPage} />
+      </div>
       <div className={style.grid_container}>
-        {allRecipes?.map((el) => {
+        {filteredRecipes()?.map((el) => {
           let diets = el.diets.length
             ? el.diets[0].name
               ? el.diets.map((el) => el.name)
