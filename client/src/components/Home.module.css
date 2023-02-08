@@ -63,7 +63,7 @@ h1::after {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
     grid-auto-rows: minmax(100px, auto);
-    margin: 20px 30px 350px 30px;
+    margin: 20px 30px 50px 30px;
 }
 
 .btnDisplay {
